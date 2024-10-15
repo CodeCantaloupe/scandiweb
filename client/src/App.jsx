@@ -12,10 +12,15 @@ class App extends React.Component {
 
   componentDidMount() {
     const getGraphQLData = async () => {
-
       try {
         const response = await axios.post("http://localhost:8000/graphql", {
-          query: `{echo(message: "Hello World")}`,
+          query: `
+          {
+            products {
+              id
+              name
+            }
+          }`,
         });
 
         console.log(response.data);
